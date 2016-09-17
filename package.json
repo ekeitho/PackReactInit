@@ -23,10 +23,16 @@
     "webpack": "^1.13.2",
     "webpack-dev-server": "^1.15.2",
     "webpack-merge": "^0.14.1",
+    "webpack-node-externals": "^1.4.3",
     "webpack-validator": "^2.2.7"
   },
   "dependencies": {
+    "casperjs": "^1.1.3",
+    "fs": "0.0.1-security",
+    "phantomjs": "^2.1.7",
     "react": "^15.3.1",
-    "react-dom": "^15.3.1"
+    "react-dom": "^15.3.1",
+    "simple-pokedex": "^0.2.2",
+    "spooky": "^0.2.5"
   }
 }

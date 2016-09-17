@@ -9,6 +9,7 @@ const PATHS = {
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const validate = require('webpack-validator');
 const parts = require(PATHS.libs + "/parts")
+var nodeExternals = require('webpack-node-externals')
 
 const common = {
     //allows imports like import Button from './Button'
@@ -28,7 +29,11 @@ const common = {
             title: 'Webpack demo',
             template: 'a-template.ejs'
         })
-    ]
+    ],
+    target: 'node',
+    externals: [nodeExternals({
+        whitelist: ['react']
+    })]
 }
 
 var config;
@@ -42,11 +47,7 @@ switch(process.env.npm_lifecycle_event) {
                             'process.env.NODE_ENV',
                             'production'
                         ),
-                        parts.clean(PATHS.build),
-                        parts.extractBundle({
-                            name: 'vendor',
-                            entries: ['react']
-                        })
+                        parts.clean(PATHS.build)
                       );
         break;
     default:
